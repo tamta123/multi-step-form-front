@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import Routing from "./Routing";
+import { Header } from "./layout";
 
 function App() {
   return (
     <Main>
+      <Header />
       <Routing />
     </Main>
   );
