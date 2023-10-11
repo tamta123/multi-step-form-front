@@ -1,0 +1,24 @@
+{
+    "Arcade": {
+      "monthly_price": "$9",
+      "yearly_price": "$90",
+      "online_service": "$10",
+      "large_storage": "$20",
+      "customizable_profile": "$20"
+    },
+    "Advanced": {
+      "monthly_price": "$12",
+      "yearly_price": "$120",
+      "online_service": "$10",
+      "large_storage": "$20",
+      "customizable_profile": "$20"
+    },
+    "Pro": {
+      "monthly_price": "$15",
+      "yearly_price": "$150",
+      "online_service": "$10",
+      "large_storage": "$20",
+      "customizable_profile": "$20"
+    }
+  }
+  

@@ -1,4 +1,6 @@
+import { WhiteBoard } from "../../components/Mutual";
+
 const ThankYou = () => {
-  return <div>ThankYou</div>;
+  return <WhiteBoard>ThankYou</WhiteBoard>;
 };
 export default ThankYou;

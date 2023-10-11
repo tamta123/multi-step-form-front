@@ -18,18 +18,18 @@ const Routing = () => {
         }
       />
       <Route
-        path="/AddOns"
-        element={
-          <Suspense fallback={"loading..."}>
-            <AddOns />
-          </Suspense>
-        }
-      />
-      <Route
         path="/Plan"
         element={
           <Suspense fallback={"loading..."}>
             <Plan />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/AddOns"
+        element={
+          <Suspense fallback={"loading..."}>
+            <AddOns />
           </Suspense>
         }
       />
