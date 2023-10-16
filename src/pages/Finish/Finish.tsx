@@ -1,13 +1,23 @@
-import { WhiteBoard } from "../../components/Mutual";
+import { NextStep, WhiteBoard } from "../../components/Mutual";
 
 const Finish = () => {
   return (
-    <WhiteBoard
-      title="Finishing up"
-      description="Double-check everything looks OK before confirming."
+    <div
+      style={{
+        height: "600px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
     >
-      Finish
-    </WhiteBoard>
+      <WhiteBoard
+        title="Finishing up"
+        description="Double-check everything looks OK before confirming."
+      >
+        Finish
+      </WhiteBoard>
+      <NextStep />
+    </div>
   );
 };
 export default Finish;

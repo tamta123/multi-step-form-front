@@ -6,6 +6,8 @@ type PropsType = {
   frequency: string;
   freeService?: string;
   children: any;
+  selected?: boolean;
+  onClick: any;
 };
 
 const PlanCard: React.FC<PropsType> = ({
@@ -14,9 +16,22 @@ const PlanCard: React.FC<PropsType> = ({
   frequency,
   freeService,
   children,
+  selected,
+  onClick,
 }) => {
   return (
-    <Card>
+    <Card
+      style={
+        selected
+          ? {
+              borderRadius: "8px",
+              border: "1px solid  #483EFF",
+              background: " #F8F9FF",
+            }
+          : {}
+      }
+      onClick={onClick}
+    >
       <div>{children}</div>
       <Wrapper>
         <OptionName>{name}</OptionName>

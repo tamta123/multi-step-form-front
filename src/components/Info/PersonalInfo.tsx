@@ -1,112 +1,81 @@
 import { useState } from "react";
+import styled from "styled-components";
 
-const PersonalInfo = () => {
-  const [name, setName] = useState("e.g. Stephen King");
-  const [email, setEmail] = useState("e.g. stephenking@lorem.com");
-  const [mobile, setMobile] = useState("e.g. +1 234 567 890");
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleMobileChange = (event) => {
-    setMobile(event.target.value);
-  };
-
+const PersonalInfo = ({ register, errors }) => {
   return (
     <div>
-      <form action="/action_page.php">
-        <label htmlFor="name">Name:</label>
-        <br />
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={name}
-          onChange={handleNameChange}
-        />
-        <br />
-        <label htmlFor="email">Email Address:</label>
-        <br />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <br />
-        <label htmlFor="mobile">Mobile:</label>
-        <br />
-        <input
-          type="text"
-          id="mobile"
-          name="mobile"
-          value={mobile}
-          onChange={handleMobileChange}
-        />
-        <br />
-        <br />
-      </form>
+      <Form>
+        <div>
+          <Tittle htmlFor="name">Name:</Tittle>
+          <br />
+          <Input
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            onChange={handleNameChange}
+            ref={register}
+          />
+          <p>{errors.name?.message}</p>
+        </div>
+        <div>
+          <Tittle htmlFor="email">Email Address:</Tittle>
+          <br />
+          <Input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={handleEmailChange}
+            ref={register}
+          />
+          <p>{errors.email?.message}</p>
+        </div>
+        <div>
+          <Tittle htmlFor="mobile">Mobile:</Tittle>
+          <br />
+          <Input
+            type="text"
+            id="mobile"
+            name="mobile"
+            value={mobile}
+            onChange={handleMobileChange}
+            ref={register}
+          />
+          <p>{errors.mobile?.message}</p>
+        </div>
+      </Form>
     </div>
   );
 };
 
 export default PersonalInfo;
 
-// const PersonalInfo = () => {
-//   const dispatch = useDispatch(); // Get the dispatch function
+const Form = styled.label`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
 
-//   // Use useSelector to access the Redux state
-//   const name = useSelector((state) => state.customer.name);
-//   const email = useSelector((state) => state.customer.email);
+const Tittle = styled.label`
+  color: #022959;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
 
-//   // Define event handlers to dispatch actions when input values change
-//   const handleNameChange = (event) => {
-//     const newName = event.target.value;
-//     dispatch(setName(newName)); // Dispatch the setName action
-//   };
-
-//   const handleEmailChange = (event) => {
-//     const newEmail = event.target.value;
-//     dispatch(setEmail(newEmail)); // Dispatch the setEmail action
-//   };
-
-//   return (
-//     <div>
-//       <form action="/action_page.php">
-//         <label htmlFor="name">Name:</label>
-//         <br />
-//         <input
-//           type="text"
-//           id="name"
-//           name="name"
-//           value={name}
-//           onChange={handleNameChange}
-//         />
-//         <br />
-//         <label htmlFor="email">Email Address:</label>
-//         <br />
-//         <input
-//           type="email"
-//           id="email"
-//           name="email"
-//           value={email}
-//           onChange={handleEmailChange}
-//         />
-//         <br />
-//         <label htmlFor="mobile">Mobile:</label>
-//         <br />
-//         {/* Add the mobile input here */}
-//         <br />
-//         <br />
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default PersonalInfo;
+const Input = styled.input`
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #d6d9e6;
+  background: #fff;
+  padding-left: 16px;
+  color: #9699aa;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+`;

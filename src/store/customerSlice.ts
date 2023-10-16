@@ -15,11 +15,11 @@ interface CustomerState {
 export type KeyofCustomerState = keyof CustomerState;
 
 const initialCustomerState: CustomerState = {
-  name: "",
-  email: "",
-  mobile: "",
-  plan_choice: "",
-  payment_frequency: "",
+  name: "e.g. Stephen King",
+  email: "e.g. stephenking@lorem.com",
+  mobile: "e.g. +1 234 567 890",
+  plan_choice: "Arcade",
+  payment_frequency: "Yearly",
   online_service: false,
   larger_storage: false,
   customizable_profile: false,
