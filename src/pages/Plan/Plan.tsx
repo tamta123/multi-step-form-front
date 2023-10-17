@@ -8,6 +8,7 @@ import styled from "styled-components";
 import data from "../../Data.json";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../store/customerSlice";
+import { PlanSchema } from "../../schemas";
 
 const Plan = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,14 @@ const Plan = () => {
 
   const selectPlan = (planName) => {
     console.log("Selecting plan:", planName);
-    dispatch(updateData({ property: "plan_choice", value: planName }));
+
+    PlanSchema.validate({ plan_choice: planName })
+      .then(() => {
+        dispatch(updateData({ property: "plan_choice", value: planName }));
+      })
+      .catch((error) => {
+        console.error("Validation error:", error);
+      });
   };
 
   return (
@@ -50,38 +58,38 @@ const Plan = () => {
       >
         <CardWrapper>
           <PlanCard
-            name="Arcade"
-            price={getPrice("Arcade")}
+            name="arcade"
+            price={getPrice("arcade")}
             frequency={payment_frequency === "Yearly" ? "/yr" : "/mo"}
             freeService={
               payment_frequency === "Yearly" ? "2 months free" : undefined
             }
-            onClick={() => selectPlan("Arcade")}
-            selected={plan_choice === "Arcade"}
+            onClick={() => selectPlan("arcade")}
+            selected={plan_choice === "arcade"}
           >
             <Arcade />
           </PlanCard>
           <PlanCard
-            name="Advanced"
-            price={getPrice("Advanced")}
+            name="advanced"
+            price={getPrice("advanced")}
             frequency={payment_frequency === "Yearly" ? "/yr" : "/mo"}
             freeService={
               payment_frequency === "Yearly" ? "2 months free" : undefined
             }
-            onClick={() => selectPlan("Advanced")}
-            selected={plan_choice === "Advanced"}
+            onClick={() => selectPlan("advanced")}
+            selected={plan_choice === "advanced"}
           >
             <Advanced />
           </PlanCard>
           <PlanCard
-            name="Pro"
-            price={getPrice("Pro")}
+            name="pro"
+            price={getPrice("pro")}
             frequency={payment_frequency === "Yearly" ? "/yr" : "/mo"}
             freeService={
               payment_frequency === "Yearly" ? "2 months free" : undefined
             }
-            onClick={() => selectPlan("Pro")}
-            selected={plan_choice === "Pro"}
+            onClick={() => selectPlan("pro")}
+            selected={plan_choice === "pro"}
           >
             <Pro />
           </PlanCard>

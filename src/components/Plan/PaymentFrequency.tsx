@@ -3,7 +3,7 @@ import styled from "styled-components";
 const PaymentFrequency = ({ handleToggle, isYearlyBilling }) => {
   return (
     <Container>
-      <Paragraph>Monthly</Paragraph>
+      <Paragraph>Yearly</Paragraph>
       <SwitchLabel htmlFor="billing">
         <HiddenCheckbox
           type="checkbox"
@@ -13,7 +13,7 @@ const PaymentFrequency = ({ handleToggle, isYearlyBilling }) => {
         />
         <ToggleSlider />
       </SwitchLabel>
-      <Paragraph>Yearly</Paragraph>
+      <Paragraph>Monthly</Paragraph>
     </Container>
   );
 };

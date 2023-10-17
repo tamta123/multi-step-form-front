@@ -15,10 +15,10 @@ interface CustomerState {
 export type KeyofCustomerState = keyof CustomerState;
 
 const initialCustomerState: CustomerState = {
-  name: "e.g. Stephen King",
-  email: "e.g. stephenking@lorem.com",
-  mobile: "e.g. +1 234 567 890",
-  plan_choice: "Arcade",
+  name: "",
+  email:"",
+  mobile: "",
+  plan_choice: "arcade",
   payment_frequency: "Yearly",
   online_service: false,
   larger_storage: false,
@@ -41,6 +41,3 @@ const customerSlice = createSlice({
 export const { updateData } = customerSlice.actions;
 export default customerSlice.reducer;
 
-// const property: keyof CustomerState = "name"
-
-//sadac gamovidzaxeb am update funccias unda she

@@ -18,6 +18,7 @@ const Info = () => {
     resolver: yupResolver(InfoSchema),
   });
   const onSubmit = (data) => {};
+
   return (
     <div
       style={{
@@ -47,9 +48,12 @@ const Info = () => {
               })}
               type="text"
               id="name"
-              placeholder={FormData.name}
+              placeholder="e.g. Stephen King"
+              style={{
+                borderColor: errors.name ? "#ee374a" : "#d6d9e6",
+              }}
             />
-            <p>{errors.name?.message}</p>
+            <Error>{errors.name?.message}</Error>
           </div>
           <div>
             <Tittle htmlFor="email">Email Address:</Tittle>
@@ -57,7 +61,7 @@ const Info = () => {
             <Input
               type="email"
               id="email"
-              placeholder={FormData.email}
+              placeholder="e.g. stephenking@lorem.com"
               {...register("email", {
                 onChange: (e) =>
                   dispatch(
@@ -67,8 +71,11 @@ const Info = () => {
                     })
                   ),
               })}
+              style={{
+                borderColor: errors.email ? "#ee374a" : "#d6d9e6",
+              }}
             />
-            <p>{errors.email?.message}</p>
+            <Error>{errors.email?.message}</Error>
           </div>
           <div>
             <Tittle htmlFor="mobile">Mobile:</Tittle>
@@ -76,7 +83,7 @@ const Info = () => {
             <Input
               type="text"
               id="mobile"
-              placeholder={FormData.mobile}
+              placeholder="e.g. +1 234 567 890"
               {...register("mobile", {
                 onChange: (e) =>
                   dispatch(
@@ -86,8 +93,11 @@ const Info = () => {
                     })
                   ),
               })}
+              style={{
+                borderColor: errors.mobile ? "#ee374a" : "#d6d9e6",
+              }}
             />
-            <p>{errors.mobile?.message}</p>
+            <Error>{errors.mobile?.message}</Error>
           </div>
         </Form>
       </WhiteBoard>
@@ -123,5 +133,14 @@ const Input = styled.input`
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
+  line-height: normal;
+`;
+
+const Error = styled.p`
+  color: #ee374a;
+  text-align: right;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
   line-height: normal;
 `;
