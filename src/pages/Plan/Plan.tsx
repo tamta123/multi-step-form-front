@@ -94,7 +94,10 @@ const Plan = () => {
             <Pro />
           </PlanCard>
         </CardWrapper>
-        <PaymentFrequency handleToggle={handleToggle} />
+        <PaymentFrequency
+          isYearlyBilling={payment_frequency !== "Yearly"}
+          handleToggle={handleToggle}
+        />
       </WhiteBoard>
       <NextStep />
     </div>

@@ -1,3 +1,4 @@
+import { CustomerChoice } from "../../components/Finish";
 import { NextStep, WhiteBoard } from "../../components/Mutual";
 
 const Finish = () => {
@@ -14,7 +15,7 @@ const Finish = () => {
         title="Finishing up"
         description="Double-check everything looks OK before confirming."
       >
-        Finish
+        <CustomerChoice />
       </WhiteBoard>
       <NextStep />
     </div>

@@ -23,7 +23,6 @@ const AddOns = () => {
         value: !formData[addOnName],
       })
     );
-    // console.log(addOnName);
   };
 
   return (
