@@ -36,7 +36,7 @@ const PlanCard: React.FC<PropsType> = ({
       <Wrapper>
         <OptionName>{name}</OptionName>
         <div>
-          <Price>{price}</Price>
+          <Price>${price}</Price>
           <Frequency>{frequency}</Frequency>
         </div>
         {freeService ? <Free>{freeService}</Free> : null}

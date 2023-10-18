@@ -9,8 +9,11 @@ import data from "../../Data.json";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../store/customerSlice";
 import { PlanSchema } from "../../schemas";
+import { useNavigate } from "react-router-dom";
 
 const Plan = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const { payment_frequency, plan_choice } = useSelector(
     (state) => state.customer
@@ -20,13 +23,13 @@ const Plan = () => {
     dispatch(
       updateData({
         property: "payment_frequency",
-        value: payment_frequency === "Yearly" ? "Monthly" : "Yearly",
+        value: payment_frequency === "yearly" ? "monthly" : "yearly",
       })
     );
   };
 
   const getPrice = (planName) => {
-    return payment_frequency === "Yearly"
+    return payment_frequency === "yearly"
       ? data[planName].yearly_price
       : data[planName].monthly_price;
   };
@@ -62,7 +65,7 @@ const Plan = () => {
             price={getPrice("arcade")}
             frequency={payment_frequency === "Yearly" ? "/yr" : "/mo"}
             freeService={
-              payment_frequency === "Yearly" ? "2 months free" : undefined
+              payment_frequency === "yearly" ? "2 months free" : undefined
             }
             onClick={() => selectPlan("arcade")}
             selected={plan_choice === "arcade"}
@@ -72,9 +75,9 @@ const Plan = () => {
           <PlanCard
             name="advanced"
             price={getPrice("advanced")}
-            frequency={payment_frequency === "Yearly" ? "/yr" : "/mo"}
+            frequency={payment_frequency === "yearly" ? "/yr" : "/mo"}
             freeService={
-              payment_frequency === "Yearly" ? "2 months free" : undefined
+              payment_frequency === "yearly" ? "2 months free" : undefined
             }
             onClick={() => selectPlan("advanced")}
             selected={plan_choice === "advanced"}
@@ -84,9 +87,9 @@ const Plan = () => {
           <PlanCard
             name="pro"
             price={getPrice("pro")}
-            frequency={payment_frequency === "Yearly" ? "/yr" : "/mo"}
+            frequency={payment_frequency === "yearly" ? "/yr" : "/mo"}
             freeService={
-              payment_frequency === "Yearly" ? "2 months free" : undefined
+              payment_frequency === "yearly" ? "2 months free" : undefined
             }
             onClick={() => selectPlan("pro")}
             selected={plan_choice === "pro"}
@@ -95,11 +98,11 @@ const Plan = () => {
           </PlanCard>
         </CardWrapper>
         <PaymentFrequency
-          isYearlyBilling={payment_frequency !== "Yearly"}
+          isYearlyBilling={payment_frequency !== "yearly"}
           handleToggle={handleToggle}
         />
       </WhiteBoard>
-      <NextStep />
+      <NextStep previousPage={"/Plan"} onSubmit={() => navigate("/AddOns")} />
     </div>
   );
 };

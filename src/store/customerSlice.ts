@@ -19,7 +19,7 @@ const initialCustomerState: CustomerState = {
   email:"",
   mobile: "",
   plan_choice: "arcade",
-  payment_frequency: "Yearly",
+  payment_frequency: "yearly",
   online_service: false,
   larger_storage: false,
   customizable_profile: false,

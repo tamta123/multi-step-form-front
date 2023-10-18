@@ -38,7 +38,7 @@ const SingleAddOn: React.FC<PropsType> = ({
           <Description>{description}</Description>
         </div>
         <div>
-          <Price selected={selected}>{price}</Price>
+          <Price selected={selected}>${price}</Price>
           <Frequency>{frequency}</Frequency>
         </div>
       </div>

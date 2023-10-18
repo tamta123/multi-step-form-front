@@ -1,22 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import data from "../../Data.json";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const CustomerChoice = () => {
-  const dispatch = useDispatch();
   const formData = useSelector((state) => state.customer);
   const price =
-    formData.payment_frequency === "Yearly"
+    formData.payment_frequency === "yearly"
       ? data[formData.plan_choice].yearly_price
       : data[formData.plan_choice].monthly_price;
 
   const getPrice = (planName) => {
-    return formData.payment_frequency === "Yearly"
+    return formData.payment_frequency === "yearly"
       ? data[planName].add_ons[0].yearly_price
       : data[planName].add_ons[0].monthly_price;
   };
 
-  //   console.log(selectedAddOn);
+  const [totalPrice, setTotalPrice] = useState(price);
+
+  const calculateTotalPrice = () => {
+    let total = price;
+    if (formData.online_service) {
+      total += getPrice("arcade");
+    }
+    if (formData.larger_storage) {
+      total += getPrice("arcade");
+    }
+    if (formData.customizable_profile) {
+      total += getPrice("arcade");
+    }
+    return total;
+  };
+
+  useEffect(() => {
+    const total = calculateTotalPrice();
+    setTotalPrice(total);
+  }, [formData]);
 
   return (
     <div>
@@ -37,12 +57,14 @@ const CustomerChoice = () => {
                   : "(Monthly)"}
               </span>
             </Name>
-            <Change>Change</Change>
+            <Link to={"/"}>
+              <Change>Change</Change>
+            </Link>
           </div>
           <PriceDiv>
-            <span>{price}</span>
+            <span>${price}</span>
             <span>
-              {formData.payment_frequency === "Yearly" ? "/yr" : "/mo"}
+              {formData.payment_frequency === "yearly" ? "/yr" : "/mo"}
             </span>
           </PriceDiv>
         </PlanChoice>
@@ -51,9 +73,9 @@ const CustomerChoice = () => {
             <AddOns>
               <div>Online service</div>
               <PriceInfo>
-                <span>+{getPrice("arcade")}</span>
+                <span>${getPrice("arcade")}</span>
                 <span>
-                  {formData.payment_frequency === "Yearly" ? "/yr" : "/mo"}
+                  {formData.payment_frequency === "yearly" ? "/yr" : "/mo"}
                 </span>
               </PriceInfo>
             </AddOns>
@@ -62,9 +84,9 @@ const CustomerChoice = () => {
             <AddOns>
               <div>Larger Storage</div>
               <PriceInfo>
-                <span>+{getPrice("arcade")}</span>
+                <span>${getPrice("arcade")}</span>
                 <span>
-                  {formData.payment_frequency === "Yearly" ? "/yr" : "/mo"}
+                  {formData.payment_frequency === "yearly" ? "/yr" : "/mo"}
                 </span>
               </PriceInfo>
             </AddOns>
@@ -73,9 +95,9 @@ const CustomerChoice = () => {
             <AddOns>
               <div>Customizable Profile</div>
               <PriceInfo>
-                <span>+{getPrice("arcade")}</span>
+                <span>${getPrice("arcade")}</span>
                 <span>
-                  {formData.payment_frequency === "Yearly" ? "/yr" : "/mo"}
+                  {formData.payment_frequency === "yearly" ? "/yr" : "/mo"}
                 </span>
               </PriceInfo>
             </AddOns>
@@ -86,10 +108,11 @@ const CustomerChoice = () => {
       <TotalWrapper>
         <Total>
           Total
-          {formData.payment_frequency === "Yearly"
+          {formData.payment_frequency === "yearly"
             ? "(per year)"
             : "(per month)"}
         </Total>
+        <TotalPrice>${totalPrice}</TotalPrice>
       </TotalWrapper>
     </div>
   );
@@ -174,5 +197,14 @@ const Total = styled.span`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  line-height: 20px;
+`;
+
+const TotalPrice = styled.span`
+  color: #483eff;
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
   line-height: 20px;
 `;

@@ -5,8 +5,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import InfoSchema from "../../schemas/PersonalInfoSchema";
 import { updateData } from "../../store/customerSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Info = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const FormData = useSelector((state) => state.customer);
 
@@ -17,7 +19,10 @@ const Info = () => {
   } = useForm({
     resolver: yupResolver(InfoSchema),
   });
-  const onSubmit = (data) => {};
+
+  const onSubmit = (data) => {
+    navigate("/Plan");
+  };
 
   return (
     <div
@@ -101,7 +106,11 @@ const Info = () => {
           </div>
         </Form>
       </WhiteBoard>
-      <NextStep type="button" onSubmit={handleSubmit(onSubmit)} />
+      <NextStep
+        type="button"
+        onSubmit={handleSubmit(onSubmit)}
+        nextPage={"/Plan"}
+      />
     </div>
   );
 };

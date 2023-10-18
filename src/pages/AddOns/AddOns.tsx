@@ -4,17 +4,20 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../store/customerSlice";
 import data from "../../Data.json";
+import { useNavigate } from "react-router-dom";
 
 const AddOns = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.customer);
 
-  const getPrice = (planName) => {
-    return formData.payment_frequency === "Yearly"
-      ? data[planName].add_ons[0].yearly_price
-      : data[planName].add_ons[0].monthly_price;
-  };
+  const getPrice = (planName, index) => {
+    console.log(data[planName].add_ons);
 
+    return formData.payment_frequency === "yearly"
+      ? data[planName].add_ons[index].yearly_price
+      : data[planName].add_ons[index].monthly_price;
+  };
   const handleAddOnSelection = (addOnName) => {
     console.log(formData[addOnName]);
     dispatch(
@@ -28,7 +31,7 @@ const AddOns = () => {
   return (
     <div
       style={{
-        height: "600px",
+        height: "500px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -42,30 +45,30 @@ const AddOns = () => {
           <SingleAddOn
             name="Online service"
             description="Access to multiplayer games"
-            price={getPrice("arcade")}
-            frequency={formData.payment_frequency === "Yearly" ? "/yr" : "/mo"}
+            price={getPrice("arcade", 0)}
+            frequency={formData.payment_frequency === "yearly" ? "/yr" : "/mo"}
             onClick={() => handleAddOnSelection("online_service")}
             selected={formData.online_service}
           ></SingleAddOn>
           <SingleAddOn
             name="Larger storage"
             description="Extra 1TB of cloud save"
-            price={getPrice("arcade")}
-            frequency={formData.payment_frequency === "Yearly" ? "/yr" : "/mo"}
+            price={getPrice("arcade", 1)}
+            frequency={formData.payment_frequency === "yearly" ? "/yr" : "/mo"}
             onClick={() => handleAddOnSelection("larger_storage")}
             selected={formData.larger_storage}
           ></SingleAddOn>
           <SingleAddOn
             name="Customizable profile"
             description="Custom theme on your profile"
-            price={getPrice("arcade")}
-            frequency={formData.payment_frequency === "Yearly" ? "/yr" : "/mo"}
+            price={getPrice("arcade", 2)}
+            frequency={formData.payment_frequency === "yearly" ? "/yr" : "/mo"}
             onClick={() => handleAddOnSelection("customizable_profile")}
             selected={formData.customizable_profile}
           ></SingleAddOn>
         </Wrapper>
       </WhiteBoard>
-      <NextStep />
+      <NextStep previousPage={"/AddOns"} onSubmit={() => navigate("/Finish")} />
     </div>
   );
 };
