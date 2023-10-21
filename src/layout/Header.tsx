@@ -1,12 +1,26 @@
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import InfoSchema from "../schemas/PersonalInfoSchema";
 
 const Header = () => {
+  const FormData = useSelector((state) => state.customer);
+  console.log(FormData);
   const location = useLocation();
 
   const isActive = (to: any) => {
     return location.pathname === to ? "active" : "";
   };
+
+  const disableNavigation = () => {
+    try {
+      InfoSchema.validateSync(FormData, { abortEarly: false });
+      return false;
+    } catch (error) {
+      return true;
+    }
+  };
+  console.log(disableNavigation());
 
   return (
     <HeaderElement>
@@ -20,24 +34,42 @@ const Header = () => {
         </Link>
         <Link
           to="/Plan"
-          className={isActive("/Plan")}
+          className={isActive("/plan")}
           style={{ textDecoration: "none" }}
         >
-          <Number className={isActive("/Plan")}>2</Number>
+          <Number
+            disabled={disableNavigation()}
+            className={isActive("/plan")}
+            style={disableNavigation() ? { opacity: "0.5" } : { opacity: "1" }}
+          >
+            2
+          </Number>
         </Link>
         <Link
           to="/AddOns"
-          className={isActive("/AddOns")}
+          className={isActive("/addOns")}
           style={{ textDecoration: "none" }}
         >
-          <Number className={isActive("/AddOns")}>3</Number>
+          <Number
+            disabled={disableNavigation()}
+            className={isActive("/addOns")}
+            style={disableNavigation() ? { opacity: "0.5" } : { opacity: "1" }}
+          >
+            3
+          </Number>
         </Link>
         <Link
           to="/Finish"
-          className={isActive("/Finish")}
+          className={isActive("/finish")}
           style={{ textDecoration: "none" }}
         >
-          <Number className={isActive("/Finish")}>4</Number>
+          <Number
+            disabled={disableNavigation()}
+            className={isActive("/finish")}
+            style={disableNavigation() ? { opacity: "0.5" } : { opacity: "1" }}
+          >
+            4
+          </Number>
         </Link>
       </Wrapper>
     </HeaderElement>

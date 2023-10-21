@@ -12,8 +12,6 @@ const AddOns = () => {
   const formData = useSelector((state) => state.customer);
 
   const getPrice = (planName, index) => {
-    console.log(data[planName].add_ons);
-
     return formData.payment_frequency === "yearly"
       ? data[planName].add_ons[index].yearly_price
       : data[planName].add_ons[index].monthly_price;
@@ -29,15 +27,10 @@ const AddOns = () => {
   };
 
   return (
-    <div
-      style={{
-        height: "500px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-      }}
-    >
+    <Main>
       <WhiteBoard
+        previousPage={"/plan"}
+        onSubmit={() => navigate("/finish")}
         title="Pick add-ons"
         description="Add-ons help enhance your gaming experience."
       >
@@ -68,15 +61,37 @@ const AddOns = () => {
           ></SingleAddOn>
         </Wrapper>
       </WhiteBoard>
-      <NextStep previousPage={"/AddOns"} onSubmit={() => navigate("/Finish")} />
-    </div>
+      <NextWrapper>
+        <NextStep previousPage={"/plan"} onSubmit={() => navigate("/finish")} />
+      </NextWrapper>
+    </Main>
   );
 };
 
 export default AddOns;
 
+const Main = styled.div`
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    height: 100vh;
+    justify-content: center;
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const NextWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

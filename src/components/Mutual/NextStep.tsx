@@ -42,6 +42,10 @@ const Wrapper = styled.div`
   background: #fff;
   box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
   padding: 16px;
+  @media (min-width: 768px) {
+    box-shadow: none;
+    padding: 0;
+  }
 `;
 
 const Back = styled.span`
@@ -75,4 +79,7 @@ const ConfirmButton = styled.button`
   font-weight: 500;
   line-height: normal;
   border: none;
+  :hover {
+    background: rgba(146, 140, 255, 1);
+  }
 `;

@@ -58,6 +58,20 @@ const Card = styled.div`
   padding-left: 16px;
   align-items: center;
   height: 99px;
+  cursor: pointer;
+  @media (min-width: 768px) {
+    height: 160px;
+    flex-direction: column;
+    width: 32%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    align-items: flex-start;
+    justify-content: space-between;
+    :hover {
+      border: 1px solid #483eff;
+    }
+  }
 `;
 
 const Wrapper = styled.div`

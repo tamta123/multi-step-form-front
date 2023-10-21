@@ -25,15 +25,10 @@ const Info = () => {
   };
 
   return (
-    <div
-      style={{
-        height: "500px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-      }}
-    >
+    <Main>
       <WhiteBoard
+        onSubmit={handleSubmit(onSubmit)}
+        nextPage={"/plan"}
         title="Personal info"
         description="Please provide your name, email address, and phone number."
       >
@@ -52,6 +47,7 @@ const Info = () => {
                   ),
               })}
               type="text"
+              value={FormData.name}
               id="name"
               placeholder="e.g. Stephen King"
               style={{
@@ -65,6 +61,7 @@ const Info = () => {
             <br />
             <Input
               type="email"
+              value={FormData.email}
               id="email"
               placeholder="e.g. stephenking@lorem.com"
               {...register("email", {
@@ -87,6 +84,7 @@ const Info = () => {
             <br />
             <Input
               type="text"
+              value={FormData.mobile}
               id="mobile"
               placeholder="e.g. +1 234 567 890"
               {...register("mobile", {
@@ -106,20 +104,35 @@ const Info = () => {
           </div>
         </Form>
       </WhiteBoard>
-      <NextStep
-        type="button"
-        onSubmit={handleSubmit(onSubmit)}
-        nextPage={"/Plan"}
-      />
-    </div>
+      <NextWrapper>
+        <NextStep
+          type="button"
+          onSubmit={handleSubmit(onSubmit)}
+          nextPage={"/plan"}
+        />
+      </NextWrapper>
+    </Main>
   );
 };
 export default Info;
+const Main = styled.div`
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    height: 100vh;
+    justify-content: center;
+  }
+`;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
 `;
 
 const Tittle = styled.label`
@@ -128,6 +141,10 @@ const Tittle = styled.label`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    margin-bottom: px;
+  }
 `;
 
 const Input = styled.input`
@@ -143,6 +160,13 @@ const Input = styled.input`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  @media (min-width: 768px) {
+    height: 48px;
+    cursor: pointer;
+    :hover {
+      outline: 1px solid #483eff;
+    }
+  }
 `;
 
 const Error = styled.p`
@@ -152,4 +176,10 @@ const Error = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+`;
+
+const NextWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

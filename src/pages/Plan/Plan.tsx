@@ -10,13 +10,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateData } from "../../store/customerSlice";
 import { PlanSchema } from "../../schemas";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../../store/redux";
 
 const Plan = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { payment_frequency, plan_choice } = useSelector(
-    (state) => state.customer
+    (state: RootState) => state.customer
   );
 
   const handleToggle = () => {
@@ -28,13 +29,29 @@ const Plan = () => {
     );
   };
 
-  const getPrice = (planName) => {
+  // type PlanData = {
+  //   arcade: {
+  //     monthly_price: number;
+  //     yearly_price: number;
+  //     // ... other properties
+  //   };
+  //   advanced: {
+  //     monthly_price: number;
+  //     yearly_price: number;
+  //     // ... other properties
+  //   };
+  //   pro: {
+  //     // ... properties for 'pro'
+  //   };
+  // };
+
+  const getPrice = (planName: string) => {
     return payment_frequency === "yearly"
       ? data[planName].yearly_price
       : data[planName].monthly_price;
   };
 
-  const selectPlan = (planName) => {
+  const selectPlan = (planName: string) => {
     console.log("Selecting plan:", planName);
 
     PlanSchema.validate({ plan_choice: planName })
@@ -47,15 +64,10 @@ const Plan = () => {
   };
 
   return (
-    <div
-      style={{
-        height: "600px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-      }}
-    >
+    <Main>
       <WhiteBoard
+        previousPage={"/"}
+        onSubmit={() => navigate("/addOns")}
         title="Select your plan"
         description="You have the option of monthly or yearly billing."
       >
@@ -63,7 +75,7 @@ const Plan = () => {
           <PlanCard
             name="arcade"
             price={getPrice("arcade")}
-            frequency={payment_frequency === "Yearly" ? "/yr" : "/mo"}
+            frequency={payment_frequency === "yearly" ? "/yr" : "/mo"}
             freeService={
               payment_frequency === "yearly" ? "2 months free" : undefined
             }
@@ -102,15 +114,36 @@ const Plan = () => {
           handleToggle={handleToggle}
         />
       </WhiteBoard>
-      <NextStep previousPage={"/Plan"} onSubmit={() => navigate("/AddOns")} />
-    </div>
+      <NextWrapper>
+        <NextStep previousPage={"/"} onSubmit={() => navigate("/addOns")} />
+      </NextWrapper>
+    </Main>
   );
 };
 export default Plan;
+
+const Main = styled.div`
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    height: 100vh;
+    justify-content: center;
+  }
+`;
 
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-bottom: 24px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+const NextWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

@@ -7,6 +7,7 @@ const Routing = () => {
   const Plan = lazy(() => import("./pages/Plan"));
   const Finish = lazy(() => import("./pages/Finish"));
   const ThankYou = lazy(() => import("./pages/ThankYou"));
+
   return (
     <Routes>
       <Route
@@ -18,7 +19,7 @@ const Routing = () => {
         }
       />
       <Route
-        path="/Plan"
+        path="/plan"
         element={
           <Suspense fallback={"loading..."}>
             <Plan />
@@ -26,7 +27,7 @@ const Routing = () => {
         }
       />
       <Route
-        path="/AddOns"
+        path="/addOns"
         element={
           <Suspense fallback={"loading..."}>
             <AddOns />
@@ -34,7 +35,7 @@ const Routing = () => {
         }
       />
       <Route
-        path="/Finish"
+        path="/finish"
         element={
           <Suspense fallback={"loading..."}>
             <Finish />
@@ -42,7 +43,7 @@ const Routing = () => {
         }
       />
       <Route
-        path="/ThankYou"
+        path="/thankYou"
         element={
           <Suspense fallback={"loading..."}>
             <ThankYou />

@@ -60,6 +60,12 @@ const Card = styled.div<{ selected: boolean }>`
   align-items: center;
   gap: 16px;
   cursor: pointer;
+  @media (min-width: 768px) {
+    width: 100%;
+    :hover {
+      border: 1px solid #483eff;
+    }
+  }
 `;
 
 const Box = styled.div<{ selected: boolean }>`
@@ -68,6 +74,9 @@ const Box = styled.div<{ selected: boolean }>`
   border-radius: 5px;
   border: 1px solid ${(props) => (props.selected ? "#483EFF" : "#d6d9e6")};
   background-color: ${(props) => (props.selected ? "#483EFF" : "")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Name = styled.div<{ selected: boolean }>`

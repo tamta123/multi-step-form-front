@@ -28,6 +28,9 @@ const Container = styled.div`
   justify-content: space-around;
   border-radius: 8px;
   background: #f8f9ff;
+  @media (min-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Paragraph = styled.p`

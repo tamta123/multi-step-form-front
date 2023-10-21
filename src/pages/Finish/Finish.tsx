@@ -4,6 +4,7 @@ import { NextStep, WhiteBoard } from "../../components/Mutual";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import styled from "styled-components";
 
 const Finish = () => {
   const navigate = useNavigate();
@@ -19,30 +20,44 @@ const Finish = () => {
         formData
       );
       console.log("POST request response:", response.data);
-      navigate("/ThankYou");
+      navigate("/thankYou");
     } catch (error) {
       console.error("Error sending POST request:", error);
     }
   };
 
   return (
-    <div
-      style={{
-        height: "500px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-      }}
-    >
+    <Main>
       <WhiteBoard
+        onSubmit={sendPostRequest}
+        previousPage={"/addOns"}
         title="Finishing up"
         description="Double-check everything looks OK before confirming."
       >
         <CustomerChoice />
       </WhiteBoard>
-      <NextStep onSubmit={sendPostRequest} />
-    </div>
+      <NextWrapper>
+        <NextStep previousPage={"/addOns"} onSubmit={sendPostRequest} />
+      </NextWrapper>
+    </Main>
   );
 };
 
 export default Finish;
+
+const Main = styled.div`
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    height: 100vh;
+    justify-content: center;
+  }
+`;
+
+const NextWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;

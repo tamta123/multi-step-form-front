@@ -1,17 +1,44 @@
 import styled from "styled-components";
+import { NavBar } from "../../layout";
+import { NextStep } from ".";
 
 type PropsType = {
   title: string;
   description: string;
   children: any;
+  onSubmit: () => void;
+  nextPage: string;
+  previousPage: string;
 };
 
-const WhiteBoard: React.FC<PropsType> = ({ title, description, children }) => {
+const WhiteBoard: React.FC<PropsType> = ({
+  title,
+  description,
+  children,
+  onSubmit,
+  nextPage,
+  previousPage,
+}) => {
   return (
     <Wrapper>
-      <Title>{title}</Title>
-      <Description>{description}</Description>
-      <div>{children}</div>
+      <NavBar></NavBar>
+      <CenterContent>
+        <Content>
+          <div>
+            <Title>{title}</Title>
+            <Description>{description}</Description>
+            <div>{children}</div>
+          </div>
+          <Next>
+            <NextStep
+              type="button"
+              onSubmit={onSubmit}
+              previousPage={previousPage}
+              nextPage={nextPage}
+            ></NextStep>
+          </Next>
+        </Content>
+      </CenterContent>
     </Wrapper>
   );
 };
@@ -26,6 +53,39 @@ const Wrapper = styled.div`
   margin: 0 auto;
   margin-top: -72px;
   padding: 32px 24px;
+  @media (min-width: 768px) {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    margin: 0 auto;
+  }
+`;
+const CenterContent = styled.div`
+  @media (min-width: 768px) {
+    width: 100%;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+const Content = styled.div`
+  @media (min-width: 768px) {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+`;
+
+const Next = styled.div`
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    margin-top: 92px;
+  }
 `;
 
 const Title = styled.h2`
@@ -35,6 +95,9 @@ const Title = styled.h2`
   font-weight: 700;
   line-height: normal;
   margin-bottom: 10px;
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 const Description = styled.p`
@@ -44,4 +107,7 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 25px;
   margin-bottom: 22px;
+  @media (min-width: 768px) {
+    margin-bottom: 35px;
+  }
 `;
