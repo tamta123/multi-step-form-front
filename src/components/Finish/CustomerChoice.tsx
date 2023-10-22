@@ -1,21 +1,25 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import data from "../../Data.json";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { RootState } from "../../store/redux";
 
 const CustomerChoice = () => {
-  const formData = useSelector((state) => state.customer);
-  const price =
-    formData.payment_frequency === "yearly"
-      ? data[formData.plan_choice].yearly_price
-      : data[formData.plan_choice].monthly_price;
+  type PlanChoice = "arcade" | "advanced" | "pro";
 
-  const getPrice = (planName) => {
+  const formData = useSelector((state: RootState) => state.customer);
+
+  const getPrice = (planName: keyof typeof data) => {
     return formData.payment_frequency === "yearly"
       ? data[planName].add_ons[0].yearly_price
       : data[planName].add_ons[0].monthly_price;
   };
+
+  const price =
+    formData.payment_frequency === "yearly"
+      ? data[formData.plan_choice as PlanChoice].yearly_price
+      : data[formData.plan_choice as PlanChoice].monthly_price;
 
   const [totalPrice, setTotalPrice] = useState(price);
 

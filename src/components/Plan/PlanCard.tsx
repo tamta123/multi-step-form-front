@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 type PropsType = {
   name: string;
-  price: string;
+  price: any;
   frequency: string;
   freeService?: string;
   children: any;

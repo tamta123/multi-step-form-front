@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-const PaymentFrequency = ({ handleToggle, isYearlyBilling }) => {
+type PaymentFrequencyProps = {
+  handleToggle: () => void;
+  isYearlyBilling: boolean;
+};
+
+const PaymentFrequency: React.FC<PaymentFrequencyProps> = ({
+  handleToggle,
+  isYearlyBilling,
+}) => {
   return (
     <Container>
       <Paragraph>Yearly</Paragraph>
