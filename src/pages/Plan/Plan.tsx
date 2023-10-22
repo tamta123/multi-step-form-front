@@ -58,7 +58,7 @@ const Plan = () => {
         <CardWrapper>
           <PlanCard
             name="arcade"
-            price={getPrice("arcade")}
+            price={getPrice("arcade").toString()}
             frequency={payment_frequency === "yearly" ? "/yr" : "/mo"}
             freeService={
               payment_frequency === "yearly" ? "2 months free" : undefined
@@ -70,7 +70,7 @@ const Plan = () => {
           </PlanCard>
           <PlanCard
             name="advanced"
-            price={getPrice("advanced")}
+            price={getPrice("advanced").toString()}
             frequency={payment_frequency === "yearly" ? "/yr" : "/mo"}
             freeService={
               payment_frequency === "yearly" ? "2 months free" : undefined
@@ -82,7 +82,7 @@ const Plan = () => {
           </PlanCard>
           <PlanCard
             name="pro"
-            price={getPrice("pro")}
+            price={getPrice("pro").toString()}
             frequency={payment_frequency === "yearly" ? "/yr" : "/mo"}
             freeService={
               payment_frequency === "yearly" ? "2 months free" : undefined

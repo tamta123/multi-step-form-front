@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { RootState } from "../store/redux";
+import InfoSchema from "../schemas/PersonalInfoSchema";
 
 const NavBar = () => {
-  const FormData = useSelector((state) => state.customer);
+  const FormData = useSelector((state: RootState) => state.customer);
   console.log(FormData);
   const location = useLocation();
 
