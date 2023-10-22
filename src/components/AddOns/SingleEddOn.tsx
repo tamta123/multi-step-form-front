@@ -4,7 +4,7 @@ import CheckMark from "../../svg/CheckMark";
 type PropsType = {
   name: string;
   description: string;
-  price: string;
+  price: any;
   frequency: string;
   onClick: (name: string) => void;
   selected: boolean;

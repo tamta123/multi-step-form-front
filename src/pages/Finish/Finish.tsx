@@ -1,15 +1,14 @@
-import React from "react";
 import { CustomerChoice } from "../../components/Finish";
 import { NextStep, WhiteBoard } from "../../components/Mutual";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import styled from "styled-components";
+import { RootState } from "../../store/redux";
 
 const Finish = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const formData = useSelector((state) => state.customer);
+  const formData = useSelector((state: RootState) => state.customer);
 
   const sendPostRequest = async () => {
     try {
@@ -37,7 +36,11 @@ const Finish = () => {
         <CustomerChoice />
       </WhiteBoard>
       <NextWrapper>
-        <NextStep previousPage={"/addOns"} onSubmit={sendPostRequest} />
+        <NextStep
+          type={"button"}
+          previousPage={"/addOns"}
+          onSubmit={sendPostRequest}
+        />
       </NextWrapper>
     </Main>
   );

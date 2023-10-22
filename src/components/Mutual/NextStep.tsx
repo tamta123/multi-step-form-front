@@ -1,16 +1,31 @@
 import styled from "styled-components";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const NextStep = ({ type, onSubmit, nextPage, previousPage }) => {
+type NextStepProps = {
+  type: "button" | "submit" | "reset";
+  onSubmit?: () => void;
+  nextPage?: string;
+  previousPage?: string;
+};
+
+const NextStep: React.FC<NextStepProps> = ({
+  type,
+  onSubmit,
+  previousPage,
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleNextStepClick = () => {
-    onSubmit();
+    if (onSubmit) {
+      onSubmit();
+    }
   };
 
   const handleGoBackClick = () => {
-    navigate(previousPage);
+    if (previousPage) {
+      navigate(previousPage);
+    }
   };
 
   return (

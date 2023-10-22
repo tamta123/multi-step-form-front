@@ -1,65 +1,63 @@
 {
   "arcade": {
-    "monthly_price": 9,
-    "yearly_price": 90,
+    "monthly_price": 10,
+    "yearly_price": 100,
     "add_ons": [
       {
         "name": "online_service",
-        "monthly_price": 1,
-        "yearly_price": 10
+        "monthly_price": 5,
+        "yearly_price": 50
       },
       {
-        "name": "large_storage",
+        "name": "larger_storage",
         "monthly_price": 2,
         "yearly_price": 20
       },
       {
         "name": "customizable_profile",
-        "monthly_price": 2,
-        "yearly_price": 20
+        "monthly_price": 3,
+        "yearly_price": 30
       }
     ]
   },
   "advanced": {
-    "monthly_price": 12,
-    "yearly_price": 120,
-    "add_ons": [
-      {
-        "name": "online_service",
-        "monthly_price": 1,
-        "yearly_price": 10
-      },
-      {
-        "name": "large_storage",
-        "monthly_price": 2,
-        "yearly_price": "20"
-      },
-      {
-        "name": "customizable_profile",
-        "monthly_price": 2,
-        "yearly_price": 20
-      }
-    ]
-  },
-  "pro": {
     "monthly_price": 15,
     "yearly_price": 150,
     "add_ons": [
       {
         "name": "online_service",
-        "monthly_price": 1,
-        "yearly_price": 10
+        "monthly_price": 5,
+        "yearly_price": 50
       },
       {
-        "name": "large_storage",
+        "name": "larger_storage",
         "monthly_price": 2,
         "yearly_price": 20
       },
       {
         "name": "customizable_profile",
+        "monthly_price": 3,
+        "yearly_price": 30
+      }    ]
+  },
+  "pro": {
+    "monthly_price": 20,
+    "yearly_price": 200,
+    "add_ons": [
+      {
+        "name": "online_service",
+        "monthly_price": 5,
+        "yearly_price": 50
+      },
+      {
+        "name": "larger_storage",
         "monthly_price": 2,
         "yearly_price": 20
-      }
-    ]
+      },
+      {
+        "name": "customizable_profile",
+        "monthly_price": 3,
+        "yearly_price": 30
+      }    ]
   }
 }

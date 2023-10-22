@@ -21,15 +21,6 @@ const ThankYou = () => {
   );
 };
 
-// const Main = styled.div`
-//   @media (min-width: 768px) {
-//     display: flex;
-//     /* height: 100vh; */
-//     justify-content: center;
-//     margin: 0 auto;
-//   }
-// `;
-
 const Wrapper = styled.div`
   width: 90%;
   height: auto;

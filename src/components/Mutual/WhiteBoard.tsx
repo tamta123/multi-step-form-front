@@ -7,8 +7,8 @@ type PropsType = {
   description: string;
   children: any;
   onSubmit: () => void;
-  nextPage: string;
-  previousPage: string;
+  nextPage?: string;
+  previousPage?: string;
 };
 
 const WhiteBoard: React.FC<PropsType> = ({

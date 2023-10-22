@@ -6,11 +6,12 @@ import InfoSchema from "../../schemas/PersonalInfoSchema";
 import { updateData } from "../../store/customerSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../../store/redux";
 
 const Info = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const FormData = useSelector((state) => state.customer);
+  const FormData = useSelector((state: RootState) => state.customer);
 
   const {
     register,
@@ -20,7 +21,7 @@ const Info = () => {
     resolver: yupResolver(InfoSchema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     navigate("/Plan");
   };
 
@@ -115,6 +116,7 @@ const Info = () => {
   );
 };
 export default Info;
+
 const Main = styled.div`
   height: 500px;
   display: flex;

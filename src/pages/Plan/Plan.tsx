@@ -29,29 +29,13 @@ const Plan = () => {
     );
   };
 
-  // type PlanData = {
-  //   arcade: {
-  //     monthly_price: number;
-  //     yearly_price: number;
-  //     // ... other properties
-  //   };
-  //   advanced: {
-  //     monthly_price: number;
-  //     yearly_price: number;
-  //     // ... other properties
-  //   };
-  //   pro: {
-  //     // ... properties for 'pro'
-  //   };
-  // };
-
-  const getPrice = (planName: string) => {
+  const getPrice = (planName: keyof typeof data) => {
     return payment_frequency === "yearly"
       ? data[planName].yearly_price
       : data[planName].monthly_price;
   };
 
-  const selectPlan = (planName: string) => {
+  const selectPlan = (planName: any) => {
     console.log("Selecting plan:", planName);
 
     PlanSchema.validate({ plan_choice: planName })
@@ -115,7 +99,11 @@ const Plan = () => {
         />
       </WhiteBoard>
       <NextWrapper>
-        <NextStep previousPage={"/"} onSubmit={() => navigate("/addOns")} />
+        <NextStep
+          type="button"
+          previousPage={"/"}
+          onSubmit={() => navigate("/addOns")}
+        />
       </NextWrapper>
     </Main>
   );

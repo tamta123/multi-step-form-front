@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface CustomerState {
+  customer?:any
   name: string;
   email: string;
   mobile: string;
