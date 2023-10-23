@@ -5,11 +5,12 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import styled from "styled-components";
 import { RootState } from "../../store/redux";
+import { useState } from "react";
 
 const Finish = () => {
   const navigate = useNavigate();
   const formData = useSelector((state: RootState) => state.customer);
-
+  const [error, setError] = useState<string>("");
   const sendPostRequest = async () => {
     try {
       console.log(formData);
@@ -20,8 +21,13 @@ const Finish = () => {
       );
       console.log("POST request response:", response.data);
       navigate("/thankYou");
-    } catch (error) {
-      console.error("Error sending POST request:", error);
+    } catch (error: any) {
+      if (error.response.status === 400 && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        console.error("Error sending POST request:", error);
+        setError("An error occurred while submitting your choice.");
+      }
     }
   };
 
@@ -34,6 +40,7 @@ const Finish = () => {
         description="Double-check everything looks OK before confirming."
       >
         <CustomerChoice />
+        {error && <ErrorMessage>{error}</ErrorMessage>}{" "}
       </WhiteBoard>
       <NextWrapper>
         <NextStep
@@ -63,4 +70,10 @@ const NextWrapper = styled.div`
   @media (min-width: 768px) {
     display: none;
   }
+`;
+
+const ErrorMessage = styled.div`
+  color: #ff0000;
+  font-size: 16px;
+  margin-top: 10px;
 `;

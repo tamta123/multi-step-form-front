@@ -19,6 +19,9 @@ const Main = styled.div`
   background: #eff5ff;
   height: 100vh;
   width: 100vw;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 `;
 const Div = styled.div`
   @media (min-width: 768px) {

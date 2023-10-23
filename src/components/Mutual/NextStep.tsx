@@ -69,6 +69,10 @@ const Back = styled.span`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  cursor: pointer;
+  :hover {
+    color: #022959;
+  }
 `;
 
 const NextButton = styled.button`

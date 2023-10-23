@@ -161,6 +161,9 @@ const Change = styled.span`
   font-weight: 400;
   line-height: 20px;
   text-decoration-line: underline;
+  :hover {
+    color: #483eff;
+  }
 `;
 
 const AddOns = styled.div`
