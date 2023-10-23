@@ -78,7 +78,7 @@ const Header = () => {
 };
 
 const HeaderElement = styled.header`
-  background-image: url("../../public/images/bg-sidebar-mobile.svg");
+  background-image: url("public/images/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
   height: 172px;
   width: 375px;
