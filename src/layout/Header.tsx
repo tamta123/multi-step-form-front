@@ -20,7 +20,6 @@ const Header = () => {
       return true;
     }
   };
-  console.log(disableNavigation());
 
   return (
     <HeaderElement>

@@ -24,25 +24,25 @@ const NavBar = () => {
   return (
     <HeaderElement>
       <Wrapper>
-        <Link
-          to="/"
-          className={isActive("/")}
-          style={{ textDecoration: "none" }}
-        >
-          <NumberWrap>
+        <NumberWrap>
+          <Link
+            to="/"
+            className={isActive("/")}
+            style={{ textDecoration: "none" }}
+          >
             <Number className={isActive("/")}>1</Number>
-            <StepWrap>
-              <Step>STEP 1</Step>
-              <Text>YOUR INFO</Text>
-            </StepWrap>
-          </NumberWrap>
-        </Link>
-        <Link
-          to="/plan"
-          className={isActive("/plan")}
-          style={{ textDecoration: "none" }}
-        >
-          <NumberWrap>
+          </Link>
+          <StepWrap>
+            <Step>STEP 1</Step>
+            <Text>YOUR INFO</Text>
+          </StepWrap>
+        </NumberWrap>
+        <NumberWrap>
+          <Link
+            to="/plan"
+            className={isActive("/plan")}
+            style={{ textDecoration: "none" }}
+          >
             <Number
               disabled={disableNavigation()}
               className={isActive("/plan")}
@@ -52,18 +52,18 @@ const NavBar = () => {
             >
               2
             </Number>
-            <StepWrap>
-              <Step>STEP 2</Step>
-              <Text>SELECT PLAN</Text>
-            </StepWrap>
-          </NumberWrap>
-        </Link>
-        <Link
-          to="/addOns"
-          className={isActive("/addOns")}
-          style={{ textDecoration: "none" }}
-        >
-          <NumberWrap>
+          </Link>
+          <StepWrap>
+            <Step>STEP 2</Step>
+            <Text>SELECT PLAN</Text>
+          </StepWrap>
+        </NumberWrap>
+        <NumberWrap>
+          <Link
+            to="/addOns"
+            className={isActive("/addOns")}
+            style={{ textDecoration: "none" }}
+          >
             <Number
               disabled={disableNavigation()}
               className={isActive("/addOns")}
@@ -73,18 +73,18 @@ const NavBar = () => {
             >
               3
             </Number>
-            <StepWrap>
-              <Step>STEP 3</Step>
-              <Text>ADD-ONS</Text>
-            </StepWrap>
-          </NumberWrap>
-        </Link>
-        <Link
-          to="/finish"
-          className={isActive("/finish")}
-          style={{ textDecoration: "none" }}
-        >
-          <NumberWrap>
+          </Link>
+          <StepWrap>
+            <Step>STEP 3</Step>
+            <Text>ADD-ONS</Text>
+          </StepWrap>
+        </NumberWrap>
+        <NumberWrap>
+          <Link
+            to="/finish"
+            className={isActive("/finish")}
+            style={{ textDecoration: "none" }}
+          >
             <Number
               disabled={disableNavigation()}
               className={isActive("/finish")}
@@ -94,12 +94,12 @@ const NavBar = () => {
             >
               4
             </Number>
-            <StepWrap>
-              <Step>STEP 4</Step>
-              <Text>SUMMARY</Text>
-            </StepWrap>
-          </NumberWrap>
-        </Link>
+          </Link>
+          <StepWrap>
+            <Step>STEP 4</Step>
+            <Text>SUMMARY</Text>
+          </StepWrap>
+        </NumberWrap>
       </Wrapper>
     </HeaderElement>
   );
