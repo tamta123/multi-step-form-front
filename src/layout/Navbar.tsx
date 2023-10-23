@@ -107,7 +107,7 @@ const NavBar = () => {
 };
 
 const HeaderElement = styled.header`
-  background-image: url("../../public/images/bg-sidebar-desktop.svg");
+  background-image: url("/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
   height: 568px;
   width: 274px;
