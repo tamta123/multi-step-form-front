@@ -35,7 +35,7 @@ const NextStep: React.FC<NextStepProps> = ({
       ) : (
         <Back onClick={handleGoBackClick}>Go Back</Back>
       )}
-      {location.pathname === "/Finish" ? (
+      {location.pathname === "/finish" ? (
         <ConfirmButton type={type} onClick={handleNextStepClick}>
           Confirm
         </ConfirmButton>
