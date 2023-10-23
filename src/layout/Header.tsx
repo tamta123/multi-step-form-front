@@ -81,7 +81,8 @@ const HeaderElement = styled.header`
   background-image: url("/images/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
   height: 172px;
-  width: 375px;
+  width: 100%;
+  background-size: cover;
 `;
 
 const Wrapper = styled.div`
