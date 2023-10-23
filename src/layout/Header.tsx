@@ -34,7 +34,7 @@ const Header = () => {
           <Number className={isActive("/")}>1</Number>
         </Link>
         <Link
-          to="/Plan"
+          to="/plan"
           className={isActive("/plan")}
           style={{ textDecoration: "none" }}
         >
@@ -47,7 +47,7 @@ const Header = () => {
           </Number>
         </Link>
         <Link
-          to="/AddOns"
+          to="/addOns"
           className={isActive("/addOns")}
           style={{ textDecoration: "none" }}
         >
@@ -60,7 +60,7 @@ const Header = () => {
           </Number>
         </Link>
         <Link
-          to="/Finish"
+          to="/finish"
           className={isActive("/finish")}
           style={{ textDecoration: "none" }}
         >

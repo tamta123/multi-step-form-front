@@ -22,7 +22,7 @@ const Info = () => {
   });
 
   const onSubmit = () => {
-    navigate("/Plan");
+    navigate("/plan");
   };
 
   return (

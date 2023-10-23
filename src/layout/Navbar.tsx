@@ -39,8 +39,8 @@ const NavBar = () => {
           </NumberWrap>
         </Link>
         <Link
-          to="/Plan"
-          className={isActive("/Plan")}
+          to="/plan"
+          className={isActive("/plan")}
           style={{ textDecoration: "none" }}
         >
           <NumberWrap>
@@ -60,8 +60,8 @@ const NavBar = () => {
           </NumberWrap>
         </Link>
         <Link
-          to="/AddOns"
-          className={isActive("/AddOns")}
+          to="/addOns"
+          className={isActive("/addOns")}
           style={{ textDecoration: "none" }}
         >
           <NumberWrap>
@@ -81,8 +81,8 @@ const NavBar = () => {
           </NumberWrap>
         </Link>
         <Link
-          to="/Finish"
-          className={isActive("/Finish")}
+          to="/finish"
+          className={isActive("/finish")}
           style={{ textDecoration: "none" }}
         >
           <NumberWrap>
