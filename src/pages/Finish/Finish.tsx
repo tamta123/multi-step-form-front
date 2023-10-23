@@ -13,8 +13,6 @@ const Finish = () => {
   const [error, setError] = useState<string>("");
   const sendPostRequest = async () => {
     try {
-      console.log(formData);
-
       const response = await axios.post(
         "https://multi-step-form-production.up.railway.app/api/user_choice",
         formData

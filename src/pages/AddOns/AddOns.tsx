@@ -18,7 +18,6 @@ const AddOns = () => {
       : data[planName].add_ons[index].monthly_price;
   };
   const handleAddOnSelection = (addOnName: string) => {
-    console.log(FormData[addOnName]);
     dispatch(
       updateData({
         property: addOnName,

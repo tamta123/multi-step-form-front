@@ -6,7 +6,6 @@ import { RootState } from "../store/redux";
 
 const Header = () => {
   const FormData = useSelector((state: RootState) => state.customer);
-  console.log(FormData);
   const location = useLocation();
 
   const isActive = (to: any) => {

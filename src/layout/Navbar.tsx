@@ -6,7 +6,6 @@ import InfoSchema from "../schemas/PersonalInfoSchema";
 
 const NavBar = () => {
   const FormData = useSelector((state: RootState) => state.customer);
-  console.log(FormData);
   const location = useLocation();
 
   const isActive = (to: any) => {
