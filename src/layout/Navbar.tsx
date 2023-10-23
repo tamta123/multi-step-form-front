@@ -46,7 +46,7 @@ const NavBar = () => {
           <NumberWrap>
             <Number
               disabled={disableNavigation()}
-              className={isActive("/addOns")}
+              className={isActive("/plan")}
               style={
                 disableNavigation() ? { opacity: "0.5" } : { opacity: "1" }
               }
