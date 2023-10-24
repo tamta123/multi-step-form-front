@@ -20,10 +20,8 @@ const SingleAddOn: React.FC<PropsType> = ({
 }) => {
   console.log(selected);
   return (
-    <Card selected={selected}>
-      <Box selected={selected} onClick={() => onClick(name)}>
-        {selected && <CheckMark />}
-      </Box>
+    <Card selected={selected} onClick={() => onClick(name)}>
+      <Box selected={selected}>{selected && <CheckMark />}</Box>
       <div
         style={{
           display: "flex",
