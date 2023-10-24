@@ -75,11 +75,11 @@ const AddOns = () => {
 export default AddOns;
 
 const Main = styled.div`
-  height: 500px;
+  height: calc(100vh - 172px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     height: 100vh;
     justify-content: center;
   }
@@ -89,13 +89,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 100%;
   }
 `;
 
 const NextWrapper = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 `;

@@ -118,11 +118,11 @@ const Info = () => {
 export default Info;
 
 const Main = styled.div`
-  height: 500px;
+  height: calc(100vh - 172px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     height: 100vh;
     justify-content: center;
   }
@@ -132,7 +132,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     gap: 24px;
   }
 `;
@@ -143,7 +143,7 @@ const Tittle = styled.label`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     font-size: 14px;
     margin-bottom: px;
   }
@@ -162,7 +162,7 @@ const Input = styled.input`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     height: 48px;
     cursor: pointer;
     :hover {
@@ -181,7 +181,7 @@ const Error = styled.p`
 `;
 
 const NextWrapper = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 `;

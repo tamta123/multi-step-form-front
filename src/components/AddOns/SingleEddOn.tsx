@@ -49,7 +49,6 @@ const SingleAddOn: React.FC<PropsType> = ({
 export default SingleAddOn;
 
 const Card = styled.div<{ selected: boolean }>`
-  width: 295px;
   height: 62px;
   border-radius: 8px;
   border: 1px solid ${(props) => (props.selected ? " #483EFF" : "#d6d9e6")};
@@ -60,7 +59,7 @@ const Card = styled.div<{ selected: boolean }>`
   align-items: center;
   gap: 16px;
   cursor: pointer;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 100%;
     :hover {
       border: 1px solid #483eff;

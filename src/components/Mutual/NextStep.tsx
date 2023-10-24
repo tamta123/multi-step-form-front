@@ -57,7 +57,7 @@ const Wrapper = styled.div`
   background: #fff;
   box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
   padding: 16px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     box-shadow: none;
     padding: 0;
   }

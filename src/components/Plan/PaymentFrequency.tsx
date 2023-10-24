@@ -29,14 +29,14 @@ const PaymentFrequency: React.FC<PaymentFrequencyProps> = ({
 export default PaymentFrequency;
 
 const Container = styled.div`
-  width: 295px;
+  /* width: 295px; */
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 8px;
   background: #f8f9ff;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 100%;
   }
 `;

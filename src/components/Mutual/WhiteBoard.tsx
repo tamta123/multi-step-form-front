@@ -53,7 +53,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   margin-top: -72px;
   padding: 32px 24px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 70%;
     display: flex;
     align-items: center;
@@ -62,7 +62,7 @@ const Wrapper = styled.div`
   }
 `;
 const CenterContent = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 100%;
     padding-left: 16px;
     display: flex;
@@ -71,7 +71,7 @@ const CenterContent = styled.div`
   }
 `;
 const Content = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     height: 100%;
     width: 60%;
     display: flex;
@@ -82,7 +82,7 @@ const Content = styled.div`
 
 const Next = styled.div`
   display: none;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: flex;
     margin-top: 92px;
   }
@@ -95,7 +95,7 @@ const Title = styled.h2`
   font-weight: 700;
   line-height: normal;
   margin-bottom: 10px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     font-size: 32px;
   }
 `;
@@ -107,7 +107,7 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 25px;
   margin-bottom: 22px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     margin-bottom: 35px;
   }
 `;

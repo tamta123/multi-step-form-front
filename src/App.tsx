@@ -24,7 +24,7 @@ const Main = styled.div`
   align-items: center; */
 `;
 const Div = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 `;

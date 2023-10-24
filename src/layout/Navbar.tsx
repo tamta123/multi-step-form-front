@@ -111,7 +111,7 @@ const HeaderElement = styled.header`
   height: 568px;
   width: 274px;
   display: none;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: flex;
   }
 `;

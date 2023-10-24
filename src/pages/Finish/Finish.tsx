@@ -54,18 +54,18 @@ const Finish = () => {
 export default Finish;
 
 const Main = styled.div`
-  height: 500px;
+  height: calc(100vh - 172px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     height: 100vh;
     justify-content: center;
   }
 `;
 
 const NextWrapper = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 `;

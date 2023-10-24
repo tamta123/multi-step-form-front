@@ -111,11 +111,11 @@ const Plan = () => {
 export default Plan;
 
 const Main = styled.div`
-  height: 600px;
+  height: calc(100vh - 172px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     height: 100vh;
     justify-content: center;
   }
@@ -126,12 +126,12 @@ const CardWrapper = styled.div`
   flex-direction: column;
   gap: 12px;
   margin-bottom: 24px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
   }
 `;
 const NextWrapper = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 `;

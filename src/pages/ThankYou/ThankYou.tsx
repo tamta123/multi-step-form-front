@@ -26,7 +26,7 @@ const ThankYou = () => {
 };
 
 const Div = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 100%;
     height: 100%;
     display: flex;
@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   margin-top: -75px;
   padding: 79px 24px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -56,7 +56,7 @@ const Wrapper = styled.div`
 `;
 
 const ThankYouWrapper = styled.div`
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +72,7 @@ const ThankYouDiv = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 60%;
   }
 `;
